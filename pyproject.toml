@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "cursor-chat-exporter"
+version = "0.1.0"
+description = "A tool to export Cursor AI chat history to markdown files"
+authors = ["Your Name <your.email@example.com>"]
+readme = "README.md"
+packages = [{include = "cursor_chat_exporter"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+numpy = "1.24.3"
+pandas = "1.5.3"
+tqdm = "^4.65.0"
+python-dateutil = "^2.8.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.3.1"
+black = "^23.7.0"
+isort = "^5.12.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+cursor-export = "cursor_chat_exporter.export_chats:main"
