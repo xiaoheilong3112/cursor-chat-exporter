@@ -1,3 +1,137 @@
+
+# Cursor Chat Exporter
+
+A tool for exporting Cursor and Windsurf IDE chat logs.
+
+## Features
+
+- Supports exporting AI chat logs of Cursor and Windsurf
+- Automatically scans workspace storage directories
+- Exports chat logs to Markdown format
+- Supports Windows and Linux systems
+- Provides detailed error handling and status feedback
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/cursor-chat-exporter.git
+cd cursor-chat-exporter
+```
+
+2. Use Poetry to install dependencies:
+```bash
+poetry install
+```
+
+Or use pip to install:
+```bash
+pip install -r requirements.txt
+```
+
+## Usage
+
+### Basic usage
+
+1. Export Cursor chat logs:
+```bash
+python -m cursor_chat_exporter.export_chats --app cursor --output cursor_chats
+```
+
+2. Export Windsurf chat log:
+```bash
+python -m cursor_chat_exporter.export_chats --app windsurf --output windsurf_chats
+```
+
+### Command line parameters
+
+- `--app`: Select the application type to export
+- `cursor`: Export the chat log of Cursor IDE
+- `windsurf`: Export the chat log of Windsurf IDE
+- `--output` or `-o`: Specify the output directory (default is 'chat_exports')
+
+### Output format
+
+Chat logs will be exported in Markdown format, with a separate file for each chat session. The file name format is: `{chat title}_{session ID}.md`
+
+Each Markdown file contains:
+- Chat title
+- All message contents
+- Message type marker
+- Separator
+
+## Data storage location
+
+### Windows
+- Cursor: `%APPDATA%\Cursor\User\workspaceStorage`
+- Windsurf: `%APPDATA%\Windsurf\User\workspaceStorage`
+
+### Linux
+- Cursor: `~/.config/Cursor/User/workspaceStorage`
+- Windsurf: `~/.config/Windsurf/User/workspaceStorage`
+
+## Troubleshooting
+
+1. If no chat history is found:
+- Confirm that the IDE has created the chat history
+- Check that the data storage path is correct
+- Confirm that you have permission to access the storage directory
+
+2. If an error occurs during export:
+- Check write permissions for the output directory
+- Ensure that there is enough disk space
+- Check the error message for more information
+
+## Development Instructions
+
+The project uses Poetry for dependency management. Main files:
+
+- `cursor_chat_util.py`: core tool class, handles data extraction and export
+
+- `export_chats.py`: command line entry script
+
+### Development environment setup
+
+1. Install Poetry:
+```bash
+curl -sSL https://install.python-poetry.org | python3 -
+```
+
+2. Install dependencies:
+```bash
+poetry install
+```
+
+3. Activate virtual environment:
+```bash
+poetry shell
+```
+
+## License
+
+MIT License
+
+## Contributions
+
+Welcome to submit issues and pull requests!
+
+## Changelog
+
+### v1.0.0
+- Initial version release
+- Supports export of Cursor and Windsurf chat records
+- Markdown format output
+- Command line interface
+
+
+
+
+
+
+
+
+
+
 # Cursor Chat Exporter
 
 一个用于导出 Cursor 和 Windsurf IDE 聊天记录的工具。
